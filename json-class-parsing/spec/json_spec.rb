@@ -11,24 +11,24 @@ describe 'Create tests for a hash' do
     expect(@json_file.json_file["base"]).to eq("EUR")
   end
 
-  # it "reading all rates" do
-  #   expect(@json_file.json_file["rates"]).to eq("EUR")
-  # end
   it "reading dates" do
     expect(@json_file.json_file["date"]).to eq("2017-07-26")
   end
+  # it "reading dates" do
+  #   expect(@json_file.json_file["date"]).to be_a(Date)
+  # end
 
   it "reading specific rates values rates" do
     expect(@json_file.json_file["rates"]["BGN"]).to eq(1.9558)
+  end
+  it "should have 31 keys" do
+    expect(@json_file.json_file["rates"].keys.length).to eq(31)
   end
 
   it "reading specific rates values rates" do
     expect(@json_file.json_file["rates"]["BGN"]).to be_a(Float)
   end
 
-  it "reading specific rates values rates" do
-    expect(@json_file.json_file["rates"]["CAD"]).to be_a(String)
-  end
 
   it "reading first country name rates" do
     expect(@json_file.json_file["rates"].first[0]).to eq("AUD")
